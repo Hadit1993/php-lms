@@ -34,8 +34,6 @@ class AdminController extends Controller
     public function AdminProfile() {
 
         $profileData = Auth::user();
-       
-        // dd($profileData);
         return view('admin.admin_profile_view', compact('profileData'));
 
     }
@@ -69,5 +67,10 @@ class AdminController extends Controller
 
         return redirect()->back()->with($notification);
     
+    }
+
+    public function AdminChangePassword(Request $request) {
+        $profileData = Auth::user();
+        return view('admin.admin_change_password', compact('profileData'));
     }
 }
