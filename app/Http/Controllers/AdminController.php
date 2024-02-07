@@ -13,6 +13,7 @@ class AdminController extends Controller
     }
 
     public function AdminLogout(Request $request)
+    
     {
         Auth::guard('web')->logout();
 
@@ -20,6 +21,11 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/admin/login');
+    }
+
+
+    public function AdminLogin() {
+        return view('admin.admin_login');
     }
 }
