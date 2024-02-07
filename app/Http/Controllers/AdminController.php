@@ -33,16 +33,18 @@ class AdminController extends Controller
 
     public function AdminProfile() {
 
-        $userId = Auth::user()-> id;
-        $profileData = User::find($userId);
+        $profileData = Auth::user();
+       
+        // dd($profileData);
         return view('admin.admin_profile_view', compact('profileData'));
 
     }
 
-    public function AdminProfileStore(Request $request) {
-
-        $userId = Auth::user()->id;
-        $data = User::find($userId);
+    public function AdminProfileStore(Request $request) 
+    {
+        /** @var User */
+        $data = Auth::user();
+        // $data = User::find($userId);
         $data->name = $request->name;
         $data->username = $request->username;
         $data->email = $request->email;
@@ -52,6 +54,7 @@ class AdminController extends Controller
 
         if($request->file('photo')) {
             $file = $request->file('photo');
+            @unlink(public_path('upload/admin_images/'.$data->photo));
             $fileName = date('YmdHi').$file->getClientOriginalName();
             $file->move(public_path('upload/admin_images'), $fileName);
             $data->photo = $fileName;
@@ -59,7 +62,12 @@ class AdminController extends Controller
 
         $data->save();
 
-        return redirect() -> back();
+        $notification = [
+            'message' => 'Admin Profile Updated Successfully',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->back()->with($notification);
     
     }
 }
