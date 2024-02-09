@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                   <form method="POST" action="{{route('admin.profile.store')}}">
+                   <form method="POST" action="{{route('admin.update.password')}}">
                     @csrf
                     <div class="card">
                         <div class="card-body">
@@ -58,7 +58,16 @@
                                     <h6 class="mb-0">Old Password</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="password" name="old_password" class="form-control"/>
+                                    <input 
+                                    type="password"
+                                    name="old_password"  
+                                    class="form-control 
+                                    @error('old_password') is-invalid @enderror"
+                                    id="old_password"
+                                    />
+                                    @error('old_password')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -66,17 +75,33 @@
                                     <h6 class="mb-0">New Password</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="password" name="new_password" class="form-control" />
+                                    <input 
+                                    type="password" 
+                                    name="new_password" 
+                                    class="form-control @error('new_password') is-invalid @enderror"  
+                                    id="new_password" />
+                                    @error('new_password')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
+
                             <div class="row mb-3">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">Email</h6>
+                                    <h6 class="mb-0">Confirm New Password</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="email" name="email" class="form-control" value={{$profileData->email}} />
+                                    <input 
+                                    type="password" 
+                                    name="new_password_confirmation" 
+                                    class="form-control @error('new_password_confirmation') is-invalid @enderror"  
+                                    id="new_password_confirmation" />
+                                    @error('new_password_confirmation')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
                                 </div>
                             </div>
+                            
                            
                            
                            

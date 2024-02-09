@@ -12,7 +12,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Admin Profilep</li>
+                    <li class="breadcrumb-item active" aria-current="page">Admin Profile</li>
                 </ol>
             </nav>
         </div>
@@ -77,14 +77,16 @@
                                     <input type="email" name="email" class="form-control" value={{$profileData->email}} />
                                 </div>
                             </div>
+
                             <div class="row mb-3">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Phone</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    <input type="tel" name="phone" class="form-control" value={{$profileData->phone}} />
+                                    <input type="tel" name="phone" class="form-control" value="{{$profileData->phone}}">
                                 </div>
                             </div>
+                            
                             <div class="row mb-3">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Address</h6>
