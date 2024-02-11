@@ -2,7 +2,7 @@
     <i class="la la-times"></i>
 </div><!-- end off-canvas-menu-close -->
 <div class="logo-box px-4">
-    <a href="index.html" class="logo"><img src="{{asset('frontend/assets/images/logo.png')}}" alt="logo"></a>
+    <a href="{{route('index')}}" class="logo"><img src="{{asset('frontend/assets/images/logo.png')}}" alt="logo"></a>
 </div>
 <ul class="generic-list-item off-canvas-menu-list off--canvas-menu-list pt-35px">
    
