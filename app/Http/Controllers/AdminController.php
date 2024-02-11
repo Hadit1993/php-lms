@@ -47,7 +47,6 @@ class AdminController extends Controller
         $data->name = $request->name;
         $data->username = $request->username;
         $data->email = $request->email;
-        $data->name = $request->name;
         $data->phone = $request->phone;
         $data->address = $request->address;
 

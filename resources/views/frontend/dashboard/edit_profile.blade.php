@@ -17,7 +17,7 @@
     <div class="setting-body">
         
         <h3 class="fs-17 font-weight-semi-bold pb-4">Edit Profile</h3>
-        <form method="post" class="row pt-40px" action="" enctype="multipart/form-data">
+        <form method="post" class="row pt-40px" action="{{route('user.profile.update')}}" enctype="multipart/form-data">
             @csrf
         <div class="media media-card align-items-center" style="margin-bottom: 20px">
             <div class="media-img media-img-lg mr-4 bg-gray">
