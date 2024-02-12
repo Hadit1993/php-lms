@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\UserController;
 
@@ -45,6 +46,10 @@ Route::middleware(['auth', 'roles:admin'])->group(function() {
     Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])-> name('admin.profile.store');
     Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])-> name('admin.change.password');
     Route::post('/admin/update/password', [AdminController::class, 'AdminUpdatePassword'])-> name('admin.update.password');
+
+    Route::controller(CategoryController::class)->group(function() {
+      Route::get('/all/category', 'AllCategory')->name('all.category');
+    });
 });
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])-> name('admin.login');
