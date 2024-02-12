@@ -34,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
     Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');
     Route::post('/user/update/password', [UserController::class, 'UserUpdatePassword'])->name('user.update.password');
-    
+
 });
 
 require __DIR__.'/auth.php';
@@ -49,6 +49,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function() {
 
     Route::controller(CategoryController::class)->group(function() {
       Route::get('/all/category', 'AllCategory')->name('all.category');
+      Route::get('/add/category', 'AddCategory')->name('add.category');
     });
 });
 

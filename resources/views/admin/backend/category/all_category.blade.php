@@ -15,12 +15,12 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-               <a href="" class="btn btn-primary px-5">Add Category</a>
+               <a href="{{route('add.category')}}" class="btn btn-primary px-5">Add Category</a>
             </div>
         </div>
     </div>
     <!--end breadcrumb-->
-    
+
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">
@@ -30,8 +30,8 @@
                             <th>Sl</th>
                             <th>Category Image</th>
                             <th>Category Name</th>
-                            <th>ACtion</th>
-                         
+                            <th>Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -45,13 +45,13 @@
                                 <a href="" class="btn btn-info px-5">Edit</a>
                                 <a href="" class="btn btn-danger px-5">Delete</a>
                             </td>
-                           
+
                         </tr>
                         @endforeach
-                      
-                       
+
+
                     </tbody>
-                
+
                 </table>
             </div>
         </div>

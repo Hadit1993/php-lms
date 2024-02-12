@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -9,20 +12,22 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
-    public function Index() {
+    public function Index(): Application
+    {
 
         return view('frontend.index');
     }
 
-    public function UserProfile() {
-        
+    public function UserProfile(): Application {
+
         $profileData = Auth::user();
-        
+
         return view('frontend.dashboard.edit_profile', compact('profileData'));
     }
 
-    public function UserProfileUpdate(Request $request) {
-        /** @var User */
+    public function UserProfileUpdate(Request $request): RedirectResponse
+    {
+        /** @var User $data */
         $data = Auth::user();
         // $data = User::find($userId);
         $data->name = $request->name;
@@ -50,7 +55,7 @@ class UserController extends Controller
     }
 
     public function UserLogout(Request $request) {
-       
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
@@ -66,7 +71,7 @@ class UserController extends Controller
     }
 
     public function UserUpdatePassword(Request $request) {
-         
+
         /** @var User */
           $user = Auth::user();
 
@@ -74,26 +79,26 @@ class UserController extends Controller
               'old_password' => 'required',
               'new_password' => 'required|confirmed'
           ]);
-  
+
           if (!Hash::check($request->old_password, $user->password)) {
               $notification = [
                   'message' => 'Old password does not match!',
                   'alert-type' => 'error'
               ];
-  
+
               return back()->with($notification);
           }
-  
+
           $user->update([
               'password' => Hash::make($request->new_password)
           ]);
-  
-  
+
+
           $notification = [
               'message' => 'Password changed successfully',
               'alert-type' => 'success'
           ];
-  
+
           return back()->with($notification);
     }
 }
