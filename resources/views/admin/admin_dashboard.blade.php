@@ -22,6 +22,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 	<link href="{{asset('backend/assets/css/app.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/assets/css/icons.css')}}" rel="stylesheet">
+	<link href="{{asset('backend/assets/plugins/datatable/css/dataTables.bootstrap5.min.css')}}" rel="stylesheet" />
 	
 	<!-- Theme Style CSS -->
 	<link rel="stylesheet" href="{{asset('backend/assets/css/dark-theme.css')}}"/>
@@ -221,6 +222,13 @@
 	<script src="{{asset('backend/assets/js/app.js')}}"></script>
 	<script>
 		new PerfectScrollbar(".app-container")
+	</script>
+	<script src="{{asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+	<script src="{{asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
+	<script>
+		$(document).ready(function() {
+			$('#example').DataTable();
+		  } );
 	</script>
 
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

@@ -26,10 +26,10 @@
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-category'></i>
                 </div>
-                <div class="menu-title">Manage Category</div>
+                <div class="menu-title">Manage Categories</div>
             </a>
             <ul>
-                <li> <a href="{{route('all.category')}}"><i class='bx bx-radio-circle'></i>All Category</a>
+                <li> <a href="{{route('all.category')}}"><i class='bx bx-radio-circle'></i>All Categories</a>
                 </li>
                 <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Add Category</a>
                 </li>
