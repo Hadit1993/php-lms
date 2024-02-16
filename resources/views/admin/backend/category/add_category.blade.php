@@ -21,7 +21,7 @@
     <div class="card">
         <div class="card-body p-4">
             <h5 class="mb-4">Add Category</h5>
-            <form class="row g-3" method="POST" action="" id="myForm">
+            <form class="row g-3" method="POST" action="{{route('store.category')}}" id="myForm" enctype="multipart/form-data">
                 @csrf
                
                 <div class="col-md-6 form-group">
@@ -90,7 +90,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#category_image').change(function(e) {
+        $('#image').change(function(e) {
             var reader = new FileReader();
             reader.onload = function(e) {
                 $('#show_image').attr('src', e.target.result);
