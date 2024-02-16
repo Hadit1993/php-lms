@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
-    public function Index(): Application
+    public function Index(): View
     {
 
         return view('frontend.index');
     }
 
-    public function UserProfile(): Application {
+    public function UserProfile(): View {
 
         $profileData = Auth::user();
 
