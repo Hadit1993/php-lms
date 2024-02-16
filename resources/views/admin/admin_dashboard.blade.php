@@ -226,6 +226,8 @@
 	</script>
 	<script src="{{asset('backend/assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></scrip>
 	<script src="{{asset('backend/assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<script src="{{ asset('backend/assets/js/code.js') }}"></script>
 	<script>
 		$(document).ready(function() {
 			$('#example').DataTable();
