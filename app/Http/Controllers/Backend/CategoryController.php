@@ -91,4 +91,24 @@ class CategoryController extends Controller
         return view('admin.backend.subcategory.all_subcategory', compact('subCategories'));
     }
 
+    public function AddSubCategory() {
+        $categories = Category::all();
+        return view('admin.backend.subcategory.add_subcategory', compact('categories'));
+    }
+
+    public function StoreSubCategory(Request $request) {
+       
+        $subCategory = new SubCategory();
+        $subCategory->category_id = $request->category_id;
+        $subCategory->subcategory_name = $request->subcategory_name;
+        $subCategory->subcategory_slug = strtolower(str_replace(' ', '_', $request->subcategory_name));
+        $subCategory->save();
+        $notification = [
+            'message' => 'SubCategory created successfully',
+            'alert-type' => 'success'
+        ];
+
+        return redirect()->route('all.subcategory')->with($notification);
+    }
+
 }
