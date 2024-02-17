@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Intervention\Image\ImageManager;
@@ -83,6 +84,11 @@ class CategoryController extends Controller
         ];
 
         return redirect()->back()->with($notification);
+    }
+
+    public function AllSubCategory() {
+        $subCategories = SubCategory::all();
+        return view('admin.backend.subcategory.all_subcategory', compact('subCategories'));
     }
 
 }
