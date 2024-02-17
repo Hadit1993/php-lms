@@ -107,4 +107,8 @@ class AdminController extends Controller
 
 
     }
+
+    public function BecomeInstructor() {
+        return view('frontend.instructor.register_instructor');
+    }
 }
