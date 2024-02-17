@@ -29,6 +29,7 @@
 	<link rel="stylesheet" href="{{asset('backend/assets/css/header-colors.css')}}"/>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 	
+	
 	<title>Instructor Dashboard</title>
 </head>
 

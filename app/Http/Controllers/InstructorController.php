@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -99,6 +100,31 @@ class InstructorController extends Controller
 
       return back()->with($notification);
 
+
+  }
+
+  public function InstructorRegister(Request $request) {
+
+    $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'unique:users']
+    ]);
+
+    $user = new User();
+    $user->name = $request->name;
+    $user->username = $request->username;
+    $user->email = $request->email;
+    $user->phone = $request->phone;
+    $user->address = $request->address;
+    $user->password = Hash::make($request->password);
+    $user->role ='instructor';
+    $user->save();
+    $notification = [
+        'message' => 'Instructor registered successfully',
+        'alert-type' => 'success'
+    ];
+
+    return redirect()->route('instructor.login')->with($notification);
 
   }
 }

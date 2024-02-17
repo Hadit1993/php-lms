@@ -312,7 +312,8 @@
             <div class="col-lg-10 mx-auto">
                 <div class="card card-item">
                     <div class="card-body">
-                        <form method="post" class="row">
+                        <form method="post" class="row" action="{{route('instructor.register')}}">
+                            @csrf
                             <div class="input-box col-lg-6">
                                 <label for="name" class="label-text">Name</label>
                                 <div class="form-group">

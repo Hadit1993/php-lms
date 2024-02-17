@@ -79,3 +79,4 @@ Route::middleware(['auth', 'roles:instructor'])->group(function() {
 });
 
 Route::get('/instructor/login', [InstructorController::class, 'InstructorLogin'])-> name('instructor.login');
+Route::post('/instructor/register', [InstructorController::class, 'InstructorRegister'])-> name('instructor.register');
