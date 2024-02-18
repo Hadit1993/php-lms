@@ -127,4 +127,6 @@ class InstructorController extends Controller
     return redirect()->route('instructor.login')->with($notification);
 
   }
+
+ 
 }

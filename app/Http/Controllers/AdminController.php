@@ -111,4 +111,10 @@ class AdminController extends Controller
     public function BecomeInstructor() {
         return view('frontend.instructor.register_instructor');
     }
+
+     public function AllInstructor() {
+         $allInstructors = User::where('role', 'instructor')->get();
+         return view('admin.backend.instructor.all_instructor', compact('allInstructors'));
+
+    }
 }
